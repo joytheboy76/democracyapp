@@ -3,11 +3,11 @@ kind: Service
 metadata:
     name: voting-service
 spec:
-    type: NodePort
+    type: LoadBalancer
     ports:
-        - port: 80
+        - protocol: TCP
+          port: 80
           targetPort: 80
-          nodePort: 30004
     selector:
      app: votingapp
      tier: front-end
